@@ -16,10 +16,5 @@ export const Statistics = ({ values }) => {
   );
 };
 Statistics.propTypes = {
-  values: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      value: PropTypes.number.isRequired,
-    })
-  ).isRequired,
+  values: PropTypes.arrayOf(PropTypes.array).isRequired,
 };
