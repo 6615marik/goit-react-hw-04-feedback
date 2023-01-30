@@ -23,21 +23,10 @@ export const Section = () => {
   ];
   const handleClick = ({ target }) => {
     const { name } = target;
-    if (name === 'good') setGood(propValue => propValue + 1);
-    if (name === 'neutral') setNeutral(propValue => propValue + 1);
-    if (name === 'bad') setBad(propValue => propValue + 1);
+    if (name === 'good') setGood(prev => prev + 1);
+    if (name === 'bad') setBad(prev => prev + 1);
+    if (name === 'neutral') setNeutral(prev => prev + 1);
   };
-  // const goodIncrement = () => {
-  //   setGood(good + 1);
-  // };
-
-  // const neutralIncrement = () => {
-  //   setNeutral(neutral + 1);
-  // };
-
-  // const badIncrement = () => {
-  //   setBad(bad + 1);
-  // };
 
   return (
     <div className={css.feedback}>
@@ -45,9 +34,6 @@ export const Section = () => {
       <FeedbackOptions
         options={['good', 'bad', 'neutral']}
         onLeaveFeedback={handleClick}
-        // goodIncrement={goodIncrement}
-        // neutralIncrement={neutralIncrement}
-        // badIncrement={badIncrement}
       />
       {sum() !== 0 ? (
         <Statistics values={values} />
